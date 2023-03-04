@@ -24,5 +24,14 @@ public void myBookListShoulBeEmpty (){
     assertEquals(bookList.getBooks().size(), 0);
 }
 
-
+// Given that I have an empty list, when I add the first book to my list then I expect numberRead to return 1. 
+@Test
+public void canAddABookInBookList (){
+    String dateRead = "January 1, 2020";
+    int rating = 4;
+    ReadingList bookList = new ReadingList();
+    Book book = new Book("Code with Mohsen","Mohsen Ali", 245, 2018 );
+    bookList.addBook(book, dateRead, rating);
+    assertEquals(bookList.numberRead(), 1);
+}
 }
