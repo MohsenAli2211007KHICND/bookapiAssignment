@@ -4,7 +4,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Collector;
+import java.util.stream.Stream;
+
 import org.junit.Test;
+
+import gul.ReadingList.BookItem;
 
 /**
  * Unit test for simple App.
@@ -63,5 +70,30 @@ public class AppTest {
         assertNotEquals(bookList.getBooks().iterator().next().book.title, book1.title);
         assertEquals(bookList.myList.size(), 1);
     }
+    // Given that I have an empty list, when I add a new book I expect getBooks() to return a list of books that includes the book I added.
+    @Test
+    public void canGetListOfBooksWhenIAddNewOne(){
+        ReadingList bookList = new ReadingList();
+        Book book1 = new Book("Code with Mohsen", "Mohsen Ali", 245, 2018);
+        bookList.addBook(book1, "February 26, 2000", 8);
+        Book book2 = new Book("Code with Baloch", "Gul Buledai", 305, 2008);
+        bookList.addBook(book2, "August 11, 2011", 7);
+        Book book3 = new Book("Code with Pathan", "Khan Buledai", 15, 2020);
+        bookList.addBook(book3, "May 15, 2022", 1); 
+        assertEquals(bookList.getBooks().get(2).book,book3);
+    }
 
+    // Given when I call getBooksByRating(), I should return a list of books that all have that rating.
+    @Test
+    public void canGetBooksByRating(){
+        ReadingList bookList = new ReadingList();
+        Book book1 = new Book("Code with Mohsen", "Mohsen Ali", 245, 2018);
+        bookList.addBook(book1, "February 26, 2000", 4);
+        Book book2 = new Book("Code with Baloch", "Gul Buledai", 305, 2008);
+        bookList.addBook(book2, "August 11, 2011", 3);
+        Book book3 = new Book("Code with Pathan", "Khan Buledai", 15, 2020);
+        bookList.addBook(book3, "May 15, 2022", 3); 
+        List<BookItem> books = bookList.getBookByRating(3);
+        assertEquals(books.size(), 2);
+    }
 }

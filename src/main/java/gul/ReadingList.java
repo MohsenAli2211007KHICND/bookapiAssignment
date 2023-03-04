@@ -2,6 +2,8 @@ package gul;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class ReadingList {
 
@@ -31,5 +33,8 @@ public class ReadingList {
     if(myList.iterator().next().book.title.equals(title)){
         myList.remove(myList.iterator().next());
         }
+    }
+    public List<BookItem> getBookByRating(int rating) {
+        return myList.stream().filter(item -> item.rating==rating).collect(Collectors.toList());
     }
 }
