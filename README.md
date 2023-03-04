@@ -73,7 +73,7 @@ User Story
 Acceptance Criteria
 
     Given that I visit the site, when I first start, I expect my list to be empty.
-    Given that I have an empty list, when I add the first book to my list then I expect numberRead to return 1.
+    Given that I have an empty list, when I add the first book to my list then I expect numberRead to return 1. 
     Given that I have an empty list, when I add additional books to the list I expect the numberRead to return the total number of books in my list.
     Given that I have a book in my list, when I call removeBook("<title>") with "title" representing the title of my book that I want to delete, then when I call getBooks() the book I deleted should no longer be there.
     Given that I have an empty list, when I add a new book I expect getBooks() to return a list of books that includes the book I added.
