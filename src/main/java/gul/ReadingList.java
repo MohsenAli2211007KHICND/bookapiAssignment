@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ReadingList {
 
-    private class BookItem {
+    class BookItem {
         Book book;
         String dateRead;
         int rating;
@@ -26,5 +26,10 @@ public class ReadingList {
     }
     public int numberRead(){
         return myList.size();
+    }
+    public void removeBook(String title){
+    if(myList.iterator().next().book.title.equals(title)){
+        myList.remove(myList.iterator().next());
+        }
     }
 }
