@@ -34,4 +34,15 @@ public void canAddABookInBookList (){
     bookList.addBook(book, dateRead, rating);
     assertEquals(bookList.numberRead(), 1);
 }
+
+// Given that I have an empty list, when I add additional books to the list I expect the numberRead to return the total number of books in my list.
+@Test
+public void canAddAdditionalBooksInBookList(){
+    ReadingList bookList = new ReadingList();
+    Book book1 = new Book("Code with Mohsen","Mohsen Ali", 245, 2018 );
+    bookList.addBook(book1, "February 26, 2000", 8);
+    Book book2 = new Book("Code with Mohsen","Gul Buledai", 305, 2008 );
+    bookList.addBook(book2, "August 11, 2011", 7);
+    assertEquals(bookList.numberRead(), bookList.getBooks().size());
+}
 }
